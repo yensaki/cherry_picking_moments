@@ -1,8 +1,13 @@
 require 'open3'
 require 'csv'
 require 'fileutils'
+require_relative 'parapara.rb'
 
-target_path = ARGV[0]
+source_file = ARGV[0]
+target_path = ARGV[1]
+
+Parapara.new(source_file, target_path).slice!
+
 output, _err, _status = Open3.capture3("python ./main.py #{target_path}")
 
 phash_map = CSV.parse(output).each.with_object({}) do |row, map|
