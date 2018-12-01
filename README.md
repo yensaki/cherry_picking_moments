@@ -1,3 +1,7 @@
+# Description
+
+This generates uniquish images from a movie file.
+
 # Usage
 
 ```ruby
