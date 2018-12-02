@@ -6,10 +6,10 @@ This generates uniquish images from a movie file.
 
 1. Install ffmpeg
 2. Install Imagemagick
-```
-# ex: MacOS
-brew install imagemagick
-```
+    ```
+    # ex: MacOS
+    brew install imagemagick
+    ```
 3. Install python
     ```basb
     CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
@@ -20,13 +20,10 @@ brew install imagemagick
     ```
 
 5. gem install this
-
 Add this line to your application's Gemfile:
-
-```ruby
-gem 'cherry_picking_moments', github: 'yensaki/cherry_picking_moments'
-```
-
+    ```ruby
+    gem 'cherry_picking_moments', github: 'yensaki/cherry_picking_moments'
+    ```
 And then execute:
 
     $ bundle
