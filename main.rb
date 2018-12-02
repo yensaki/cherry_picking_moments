@@ -49,6 +49,7 @@ filenames.each do |filename_a|
   # next if duplicateds.include?(phash_a)
 
   filenames.each do |filename_b|
+    next if filename_a == filename_b
     filepath_b = File.join(target_path, filename_b)
     next unless File.exist?(filepath_b)
 
