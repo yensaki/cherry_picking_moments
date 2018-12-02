@@ -1,7 +1,8 @@
+require 'cherry_picking_moments/version'
 require 'fileutils'
-require_relative 'cherry_picking_moments/parapara.rb'
-require_relative 'cherry_picking_moments/imagehash.rb'
-require_relative 'cherry_picking_moments/similar_images.rb'
+require 'cherry_picking_moments/parapara.rb'
+require 'cherry_picking_moments/imagehash.rb'
+require 'cherry_picking_moments/similar_images.rb'
 
 module CherryPickingMoments
   def self.uniquish!(source_file, target_path)
