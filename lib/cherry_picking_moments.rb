@@ -12,7 +12,7 @@ module CherryPickingMoments
 
     phash_map = ImageHash.phash_map(target_path)
     psimilar_images = SimilarImages.new(phash_map, target_path)
-    psimilar_images.uniquish!(threshold: 16)
+    psimilar_images.uniquish!(threshold: 20)
 
     dhash_map = ImageHash.dhash_map(target_path)
     dsimilar_images = SimilarImages.new(dhash_map, target_path)
