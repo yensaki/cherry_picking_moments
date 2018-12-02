@@ -27,5 +27,16 @@ module CherryPickingMoments
       end
       dhash_map
     end
+
+    def self.ahash_map(target_path)
+      ahash_map = Hash.new([])
+      Dir.glob(File.join(target_path, '*.jpg')) do |filepath|
+        filename = File.basename(filepath)
+        pyimage = Image.open(filepath)
+        ahash = imagehash.average_hash(pyimage).to_s
+        ahash_map[ahash] += [filename]
+      end
+      ahash_map
+    end
   end
 end
