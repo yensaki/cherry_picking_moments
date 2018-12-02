@@ -57,7 +57,7 @@ filenames.each do |filename_a|
     # next if duplicateds.include?(phash_b)
     diff =  hamming_distance(to_binary(phash_a), to_binary(phash_b))
     puts "#{diff}, file: #{filename_a}: #{phash_a}, #{filename_b}: #{phash_b}"
-    if diff <= 10
+    if diff <= 22
       puts "delete! #{filename_b}"
       FileUtils.rm(filepath_b)
       deleted_nearies << phash_b
