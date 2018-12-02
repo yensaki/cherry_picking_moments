@@ -4,6 +4,11 @@ This generates uniquish images from a movie file.
 
 ## Installation
 
+1. Install Imagemagick
+```
+# ex: MacOS
+brew install imagemagick
+```
 1. Install python
     ```basb
     CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
@@ -35,6 +40,10 @@ Or install it yourself as:
 require 'cherry_picking_moments'
 CherryPickingMoments.uniquish!('/path/to/a/movie.mp4', '/path/to/pictures/dir')
 ```
+
+# Attention
+
+Now, this use `/tmp` dir.
 
 ## Development
 
