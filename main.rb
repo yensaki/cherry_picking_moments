@@ -3,29 +3,36 @@ require 'csv'
 require 'fileutils'
 require_relative 'parapara.rb'
 
+require 'pycall/import'
+include PyCall::Import
+pyimport :imagehash
+pyfrom :PIL, import: :Image
+
 source_file = ARGV[0]
 target_path = ARGV[1]
 
 Parapara.new(source_file, target_path).slice!
 
-output, _err, _status = Open3.capture3("python ./main.py #{target_path}")
+phash_map = {}
 
-phash_map = CSV.parse(output).each.with_object({}) do |row, map|
-  phash = row.first
-  filename = row[1]
-  filepath = File.join(target_path, filename).to_s
-  next unless File.exist?(filepath)
-
-  if map[phash]
+duplicated_count = 0
+Dir.glob(File.join(target_path, '*.jpg')) do |filepath|
+  filename = File.basename(filepath)
+  pyimage = Image.open(filepath)
+  phash = imagehash.phash(pyimage).to_s
+  if phash_map[phash]
     puts "delete! duplicated: #{phash}: #{filename}"
     FileUtils.rm(filepath)
+    duplicated_count += 1
   else
-    map[phash] = filename
+    phash_map[phash] = filename
   end
-end.invert
+end
+
+phash_map = phash_map.invert
 
 filenames = phash_map.keys.sort
-duplicateds = []
+deleted_nearies = []
 
 def to_binary(phash)
   sprintf("%064b", phash.to_i(16))
@@ -52,10 +59,11 @@ filenames.each do |filename_a|
     if diff <= 10
       puts "delete! #{filename_b}"
       FileUtils.rm(filepath_b)
-      duplicateds << phash_b
+      deleted_nearies << phash_b
     end
   end
   filenames.delete(filename_a)
 end
 
-puts "dupulicated #{duplicateds.size}"
+puts "deleted duplicated: #{duplicated_count}"
+puts "deleted neary: #{deleted_nearies.size}"
