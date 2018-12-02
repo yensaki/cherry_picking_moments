@@ -12,7 +12,16 @@ This generates uniquish images from a movie file.
     ```bash
     pip install ImageHash
     ```
-3. run ruby with target movie filepath and dir_path
-    ```bash
-    bundle exec ruby ./lib/main.rb /path/to/a/movie.mp4 /path/to/pictures
+3. gem install this
+    ```
+    # Gemfile
+    gem 'cherry_picking_moments', github: 'yensaki/cherry_picking_moments'
+    ```
+    ```ruby
+    bundle install
+    ```
+3.  in Ruby
+    ```ruby
+    require 'cherry_picking_moments'
+    CherryPickingMoments.uniquish!('/path/to/a/movie.mp4', '/path/to/pictures/dir')
     ```
