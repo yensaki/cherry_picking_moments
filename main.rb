@@ -1,7 +1,4 @@
-require 'open3'
-require 'csv'
 require 'fileutils'
-require 'pycall/import'
 require_relative 'parapara.rb'
 require_relative 'imagehash.rb'
 require_relative 'similar_images.rb'
