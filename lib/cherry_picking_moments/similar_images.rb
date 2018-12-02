@@ -45,7 +45,8 @@ module CherryPickingMoments
 
     def destroy_duplicateds
       @phash_map.each do |phash, filenames|
-        rest = filenames.shift
+        rest = filenames.sample
+        filenames.delete(rest)
         @filename_index[rest] = phash
         next if filenames.size.zero?
 

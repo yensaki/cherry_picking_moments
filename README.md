@@ -4,21 +4,22 @@ This generates uniquish images from a movie file.
 
 ## Installation
 
-1. Install Imagemagick
+1. Install ffmpeg
+2. Install Imagemagick
 ```
 # ex: MacOS
 brew install imagemagick
 ```
-1. Install python
+3. Install python
     ```basb
     CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
     ```
-2. Install imagehash from pip
+4. Install imagehash from pip
     ```bash
     pip install ImageHash
     ```
 
-3. gem install this
+5. gem install this
 
 Add this line to your application's Gemfile:
 
