@@ -11,6 +11,8 @@ pyfrom :PIL, import: :Image
 source_file = ARGV[0]
 target_path = ARGV[1]
 
+FileUtils.mkdir_p(target_path)
+
 Parapara.new(source_file, target_path).slice!
 
 phash_map = {}
