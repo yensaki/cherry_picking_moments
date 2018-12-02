@@ -6,24 +6,26 @@ module CherryPickingMoments
     pyimport :imagehash
     pyfrom :PIL, import: :Image
 
-    def self.hash_map(target_path)
-      @duplicateds = []
-      phash_map = {}
+    def self.phash_map(target_path)
+      phash_map = Hash.new([])
       Dir.glob(File.join(target_path, '*.jpg')) do |filepath|
         filename = File.basename(filepath)
         pyimage = Image.open(filepath)
         phash = imagehash.phash(pyimage).to_s
-        if phash_map[phash]
-          FileUtils.rm(filepath)
-          @duplicateds << filename
-        else
-          phash_map[phash] = filename
-        end
-      end
-      @duplicateds.each do |filename|
-        puts "delete! duplicated: #{filename}"
+        phash_map[phash] += [filename]
       end
       phash_map
+    end
+
+    def self.dhash_map(target_path)
+      dhash_map = Hash.new([])
+      Dir.glob(File.join(target_path, '*.jpg')) do |filepath|
+        filename = File.basename(filepath)
+        pyimage = Image.open(filepath)
+        dhash = imagehash.dhash(pyimage).to_s
+        dhash_map[dhash] += [filename]
+      end
+      dhash_map
     end
   end
 end
