@@ -34,10 +34,6 @@ Or install it yourself as:
 CherryPickingMoments.uniquish!('/path/to/a/movie.mp4', '/path/to/pictures/dir')
 ```
 
-# Attention
-
-Now, this use `/tmp` dir.
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
