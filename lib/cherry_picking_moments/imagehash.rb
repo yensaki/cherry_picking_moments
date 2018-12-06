@@ -8,7 +8,7 @@ module CherryPickingMoments
 
     def self.phash_map(target_path)
       phash_map = Hash.new([])
-      Dir.glob(File.join(target_path, '*.jpg')) do |filepath|
+      Dir.glob(File.join(target_path, '*.png')) do |filepath|
         filename = File.basename(filepath)
         pyimage = Image.open(filepath)
         phash = imagehash.phash(pyimage).to_s
@@ -19,7 +19,7 @@ module CherryPickingMoments
 
     def self.dhash_map(target_path)
       dhash_map = Hash.new([])
-      Dir.glob(File.join(target_path, '*.jpg')) do |filepath|
+      Dir.glob(File.join(target_path, '*.png')) do |filepath|
         filename = File.basename(filepath)
         pyimage = Image.open(filepath)
         dhash = imagehash.dhash(pyimage).to_s
@@ -30,7 +30,7 @@ module CherryPickingMoments
 
     def self.ahash_map(target_path)
       ahash_map = Hash.new([])
-      Dir.glob(File.join(target_path, '*.jpg')) do |filepath|
+      Dir.glob(File.join(target_path, '*.png')) do |filepath|
         filename = File.basename(filepath)
         pyimage = Image.open(filepath)
         ahash = imagehash.average_hash(pyimage).to_s

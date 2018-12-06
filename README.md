@@ -5,28 +5,24 @@ This generates uniquish images from a movie file.
 ## Installation
 
 1. Install ffmpeg
-2. Install Imagemagick
+1. Install python
     ```
-    # ex: MacOS
-    brew install imagemagick
+    $ CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
     ```
-3. Install python
-    ```basb
-    CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
+1. Install imagehash from pip
     ```
-4. Install imagehash from pip
-    ```bash
-    pip install ImageHash
+    $ pip install ImageHash
     ```
 
-5. gem install this
+1. gem install this
 Add this line to your application's Gemfile:
     ```ruby
     gem 'cherry_picking_moments', github: 'yensaki/cherry_picking_moments'
     ```
 And then execute:
-
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
@@ -35,7 +31,6 @@ Or install it yourself as:
 # Usage
 
 ```ruby
-require 'cherry_picking_moments'
 CherryPickingMoments.uniquish!('/path/to/a/movie.mp4', '/path/to/pictures/dir')
 ```
 

@@ -19,8 +19,8 @@ module CherryPickingMoments
       filenames.each do |filename_a|
         filepath_a = File.join(@dir_path, filename_a)
         next unless File.exist?(filepath_a)
-        phash_a = @filename_index[filename_a]
 
+        phash_a = @filename_index[filename_a]
         filenames.each do |filename_b|
           next if filename_a == filename_b
 
@@ -29,13 +29,11 @@ module CherryPickingMoments
 
           phash_b = @filename_index[filename_b]
           diff =  hamming_distance(to_binary(phash_a), to_binary(phash_b))
-          puts "#{diff}, file: #{filename_a}: #{phash_a}, #{filename_b}: #{phash_b}"
+          next if diff > threshold
 
-          if diff <= threshold
-            puts "delete! #{filename_b}"
-            FileUtils.rm(filepath_b)
-            @deleted_nearies << phash_b
-          end
+          puts "delete! #{filename_b}"
+          FileUtils.rm(filepath_b)
+          @deleted_nearies << phash_b
         end
         filenames.delete(filename_a)
       end

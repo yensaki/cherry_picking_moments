@@ -16,11 +16,11 @@ module CherryPickingMoments
 
     dhash_map = ImageHash.dhash_map(target_path)
     dsimilar_images = SimilarImages.new(dhash_map, target_path)
-    dsimilar_images.uniquish!(threshold: 12)
+    dsimilar_images.uniquish!(threshold: 20)
 
     ahash_map = ImageHash.ahash_map(target_path)
     asimilar_images = SimilarImages.new(ahash_map, target_path)
-    asimilar_images.uniquish!(threshold: 10)
+    asimilar_images.uniquish!(threshold: 20)
 
     puts "phash deleted duplicated: #{psimilar_images.duplicateds.size}"
     puts "phash deleted neary: #{psimilar_images.deleted_nearies.size}"
