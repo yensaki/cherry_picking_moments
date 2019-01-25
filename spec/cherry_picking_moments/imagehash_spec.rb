@@ -1,6 +1,13 @@
 require "spec_helper"
 
 RSpec.describe CherryPickingMoments::ImageHash do
+  let(:target_filename) { 'image001.png' }
+  around do |example|
+    FileUtils.cp(target_path.join(target_filename), target_path.join('_image001.origin'))
+    example.run
+    FileUtils.mv(target_path.join('_image001.origin'), target_path.join(target_filename))
+  end
+
   describe 'phash_map' do
     subject { CherryPickingMoments::ImageHash.phash_map(target_path) }
     let(:target_path) { spec_dir.join("fixtures/images") }
