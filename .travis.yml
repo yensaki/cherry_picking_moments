@@ -1,15 +1,17 @@
-lang: ruby, python
+language: ruby
 rvm:
   - 2.5
   - 2.6
-python:
-  - 3.6
+env:
+  global:
+    - PYCALL_DEBUG_FIND_LIBPYTHON=1
+  matrix:
+    - PYENV_VERSION=3.6
 before_install:
   - travis_retry gem update --system || travis_retry gem update --system 2.7.8
   - travis_retry gem install bundler --no-document || travis_retry gem install bundler --no-document -v 1.17.3
 install:
-  - pip install --upgrade pip
-  - pip install imagehash
+  - ci/travis_install.sh
 script:
   - bundle exec rspec
 branches:
