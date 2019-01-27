@@ -43,3 +43,5 @@ case "$PYENV_VERSION" in
   pip install --user imagehash
   ;;
 esac
+
+bundle install
