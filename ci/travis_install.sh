@@ -45,3 +45,4 @@ case "$PYENV_VERSION" in
 esac
 
 bundle install
+git clean -f
