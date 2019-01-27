@@ -34,12 +34,12 @@ case "$PYENV_VERSION" in
     ;;
   esac
   conda config --set always_yes yes --set changeps1 no
-  travis_retry conda update -q conda
+  conda update -q conda
   conda info -a
-  travis_retry conda create -q -n test-environment python=$python_version imagehash
+  conda create -q -n test-environment python=$python_version imagehash
   source $(pyenv prefix)/bin/activate test-environment
   ;;
 *)
-  travis_retry pip install --user imagehash
+  pip install --user imagehash
   ;;
 esac
