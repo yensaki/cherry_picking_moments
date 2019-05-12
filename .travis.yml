@@ -6,4 +6,4 @@ before_install:
   - gem install bundler -v 2.0.1
 install:
   - pyenv install -f miniconda-3.7.0
-  - pip install imagehash
+  - pip3 install imagehash
