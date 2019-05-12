@@ -2,4 +2,8 @@ sudo: false
 language: ruby
 rvm:
   - 2.6.3
-before_install: gem install bundler -v 2.0.1
+python:
+  - 3.7.3
+before_install:
+  - pip install imagehash
+  - gem install bundler -v 2.0.1
