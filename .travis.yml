@@ -3,7 +3,9 @@ language: ruby
 rvm:
   - 2.6.3
 before_install:
+  - export PATH="$(pyenv root)/bin:$PATH"
+  - eval "$(pyenv init -)"
   - gem install bundler -v 2.0.1
 install:
   - pyenv install -f miniconda-3.7.0
-  - pip3 install imagehash
+  - pip install --user imagehash
