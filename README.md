@@ -1,5 +1,7 @@
 # CherryPickingMoments
 
+[![Build Status](https://travis-ci.org/yensaki/cherry_picking_moments.svg?branch=master)](https://travis-ci.org/yensaki/cherry_picking_moments)
+
 This generates uniquish images from a movie file.
 
 ## Installation
