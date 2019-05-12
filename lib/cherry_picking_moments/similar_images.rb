@@ -4,7 +4,7 @@ module CherryPickingMoments
   class SimilarImages
     attr_reader :deleted_nearies, :duplicateds
 
-    def initialize(phash_map, dir_path)
+    def initialize(phash_map)
       @phash_map = phash_map
     end
 

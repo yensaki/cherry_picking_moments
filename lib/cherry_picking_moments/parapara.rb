@@ -1,12 +1,15 @@
 require "open3"
 require "fileutils"
+require 'tmpdir'
 
 module CherryPickingMoments
   class Parapara
-    def initialize(file, output_path, rate: 3)
+    attr_reader :output_path
+
+    def initialize(file, rate: 3)
       @file = file
-      @output_path = output_path
       @rate = rate
+      @output_path = Dir.tmpdir
     end
 
     def slice!
