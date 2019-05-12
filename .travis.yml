@@ -9,3 +9,4 @@ before_install:
 install:
   - pyenv install -f miniconda-3.7.0
   - pip install --user imagehash
+  - bundle install
