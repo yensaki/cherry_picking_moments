@@ -1,17 +1,15 @@
-sudo: false
+sudo: required
 language: ruby
+os: linux
 rvm:
   - 2.6.3
 before_install:
-  - export PATH="$(pyenv root)/bin:$PATH"
-  - eval "$(pyenv init -)"
-  - gem install bundler -v 2.0.1
+  - sudo add-apt-repository ppa:mc3man/trusty-media -y
+  - sudo apt-get update -q
+  - sudo apt-get install ffmpeg -y
+  - gem update --system
+  - gem update bundler
 install:
-  - pyenv install -f miniconda-3.7.0
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  - conda info -a
-  - conda create -q -n test-environment python=3.7 imagehash
-  - source $(pyenv prefix)/bin/activate test-environment
-  - pip install --user imagehash
   - bundle install
+script:
+  - bundle exec rspec
