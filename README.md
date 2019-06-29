@@ -19,7 +19,7 @@ This generates uniquish images from a movie file.
 1. gem install this
 Add this line to your application's Gemfile:
     ```ruby
-    gem 'cherry_picking_moments', github: 'yensaki/cherry_picking_moments'
+    gem 'cherry_picking_moments'
     ```
 And then execute:
 ```
