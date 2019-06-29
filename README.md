@@ -32,8 +32,16 @@ Or install it yourself as:
 
 # Usage
 
+You can get sliced images of a movie.  
+Their images have hamming_distance compared with next index image.
+
 ```ruby
-CherryPickingMoments.uniquish!('/path/to/a/movie.mp4', '/path/to/pictures/dir')
+movie = CherryPickingMoments.movie('/path/to/a/movie.mp4')
+images = movie.images
+images.map(&:following_distance)
+# => [12, 6, 8, 18, 14, 20, 26, 20, 20, 26, 8, nil]
+images.map(&:filepath)
+# =>  ['/path/to/0001.png', '/path/to/0002.png', '/path/to/0003.png', ..., '/path/to/0012.png']
 ```
 
 ## Development
