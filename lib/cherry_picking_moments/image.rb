@@ -1,7 +1,7 @@
 require 'pycall/import'
 include PyCall::Import
 
-class CherryPickingMoments::Phash
+class CherryPickingMoments::Image
   attr_reader :filepath
   attr_accessor :following_distance
   pyfrom :PIL, import: :Image

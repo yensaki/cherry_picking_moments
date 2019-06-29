@@ -5,8 +5,9 @@ RSpec.describe CherryPickingMoments do
     expect(CherryPickingMoments::VERSION).not_to be nil
   end
 
-  describe '#hamming_distances' do
-    subject { CherryPickingMoments.hamming_distances(source_file_path) }
+  describe '#movie' do
+    subject { movie.images }
+    let(:movie) { CherryPickingMoments.movie(source_file_path) }
     let(:source_file_path) { Pathname(__dir__).join('fixtures/movie/sample.mp4') }
 
     it 'gets hamming_distances' do
