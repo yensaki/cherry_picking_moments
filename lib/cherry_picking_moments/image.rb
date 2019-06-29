@@ -1,27 +1,18 @@
-require 'pycall/import'
-include PyCall::Import
+require 'phashion'
 
 class CherryPickingMoments::Image
   attr_reader :filepath
   attr_accessor :following_distance
-  pyfrom :PIL, import: :Image
 
   def initialize(filepath)
     @filepath = filepath
-    pyimport :imagehash
   end
 
-  def phash
-    @phash ||= imagehash.phash(pyimage).to_s
+  def distance_from(image)
+    phashion_image.distance_from(image.phashion_image)
   end
 
-  def to_binary
-    sprintf("%064b", phash.to_i(16))
-  end
-
-  private
-
-  def pyimage
-    @pyimage ||= Image.open(@filepath)
+  def phashion_image
+    @phashion_image ||= Phashion::Image.new(@filepath)
   end
 end

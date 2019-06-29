@@ -13,8 +13,9 @@ class CherryPickingMoments::Movie
     @images = []
     Dir.glob(File.join(parapara!.output_path, '*.png')).sort.each do |filepath|
       image = CherryPickingMoments::Image.new(filepath)
-      prev_image = @images.last
-      prev_image.following_distance = CherryPickingMoments::HammingDistance.new(prev_image, image).hamming_distance if prev_image
+      if (prev_image = @images.last)
+        prev_image.following_distance = prev_image.distance_from(image)
+      end
 
       @images << image
     end
