@@ -11,7 +11,7 @@ RSpec.describe CherryPickingMoments do
     let(:source_file_path) { Pathname(__dir__).join('fixtures/movie/sample.mp4') }
 
     it 'gets hamming_distances' do
-      expect(subject.map(&:following_distance)).to eq [12, 6, 8, 18, 14, 20, 26, 20, 20, 26, 8, nil]
+      expect(subject.map(&:following_distance)).to eq [6, 20, 14, 14, 16, 8, 2, 8, 14, 8, 4, nil]
     end
   end
 end
