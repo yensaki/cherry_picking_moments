@@ -2,20 +2,11 @@
 
 [![Build Status](https://travis-ci.org/yensaki/cherry_picking_moments.svg?branch=master)](https://travis-ci.org/yensaki/cherry_picking_moments)
 
-This generates uniquish images from a movie file.
+This generates sliced images with hamming_distance from a movie file.
 
 ## Installation
 
 1. Install ffmpeg
-1. Install python
-    ```
-    $ CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
-    ```
-1. Install imagehash from pip
-    ```
-    $ pip install ImageHash
-    ```
-
 1. gem install this
 Add this line to your application's Gemfile:
     ```ruby
